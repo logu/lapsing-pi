@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/libs/bootstrap/dist/css/bootstrap.css' />
+    <link rel='stylesheet' href='/libs/bootstrap/dist/css/bootstrap-theme.css' /> 
+    <link rel='stylesheet' href='/stylesheets/navbar-static-top.css' />   
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{ title }}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">home</a></li>
+            <li class="active"><a href="/camera">camera</a></li>            
+            <li><a href="/gallery">gallery</a></li>
+            <li><a href="/about">about</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <form role="form" method="post">
+        <div class="form-group">
+          <label for="file-name">The path and filename where you want to store the photos</label>
+          <input type="text" class="form-control" id="file-name" name="file" placeholder="timelapse">
+        </div>
+        <div class="form-group">
+          <label for="select-mode">Mode</label>
+          <select id="select-mode" class="form-control" name="mode">
+            <option>timelapse</option>
+            <option>photo</option>            
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="set-width">Set image width</label>
+          <input name="pwidth" type="text" class="form-control" id="set-width" placeholder="1080">
+        </div>
+        <div class="form-group">
+          <label for="set-height">Set image height</label>
+          <input name="pheight" type="text" class="form-control" id="set-height" placeholder="720">
+        </div>
+        <div class="form-group">
+          <label for="set-time">Time (in ms) before takes picture and shuts down (if not specified, set to 3h)</label>
+          <input name="ptime" type="text" class="form-control" id="set-time" placeholder="7200000">
+        </div>
+        <div class="form-group">
+          <label for="set-time-lapse"> Timelapse mode. Takes a picture every ms</label>
+          <input name="ptimelapse" type="text" class="form-control" id="set-time-lapse" placeholder="1000">
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary pull-right">Go</button>
+      </form>
+      {{commande}}
+    </div>
+  </body>
+</html>

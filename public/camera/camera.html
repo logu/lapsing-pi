@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Camera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/libs/bootstrap/dist/css/bootstrap.css' />
+    <link rel='stylesheet' href='/libs/bootstrap/dist/css/bootstrap-theme.css' /> 
+    <link rel='stylesheet' href='/stylesheets/navbar-static-top.css' />   
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Camera</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">home</a></li>
+            <li class="active"><a href="/camera">camera</a></li>            
+            <li><a href="/gallery">gallery</a></li>
+            <li><a href="/about">about</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <form role="form" method="post">
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="display:block">
+                  Base settings
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <div class="form-group">
+                  <label for="select-mode">Mode</label>
+                  <select id="select-mode" class="form-control" name="mode">
+                    <option>timelapse</option>
+                    <option>photo</option>            
+                  </select>
+                </div>                  
+                <div class="form-group">
+                  <label for="file-name">The path and filename where you want to store the photos</label>
+                  <input type="text" class="form-control" id="file-name" name="file" placeholder="timelapse">
+                </div>   
+                <hr/>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="set-width">Set image width</label>
+                    <input name="pwidth" type="text" class="form-control" id="set-width" placeholder="1080">
+                  </div>                   
+                  <div class="form-group col-md-6">
+                    <label for="set-height">Set image height</label>
+                    <input name="pheight" type="text" class="form-control" id="set-height" placeholder="720">
+                  </div>
+                </div>
+                <hr/>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="set-time">
+                      Timer
+                    </label>
+                    <input name="ptime" type="text" class="form-control" id="set-time" placeholder="7200000">
+                    <small class="info text-muted">
+                      Time (in ms) before takes picture and shuts down (if not specified, set to 3h)
+                    </small>
+                  </div>        
+                  <div class="form-group col-md-6">
+                    <label for="set-time-lapse"> Timelapse mode</label>
+                    <input name="ptimelapse" type="text" class="form-control" id="set-time-lapse" placeholder="1000">
+                    <small class="info text-muted">
+                      Takes a picture every ms (1fps)
+                    </small>
+                  </div>  
+                </div>                                 
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style="display:block">
+                  Camera Control Options
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="form-group col-md-2">
+                    <label for="set-sharpness">
+                      Sharpness
+                    </label>
+                    <input value="0" name="psharpness" type="text" class="form-control" id="set-sharpness" placeholder="0">
+                    <small class="info text-muted">
+                      Set the sharpness of the image.
+                    </small>
+                    
+                  </div>        
+                  <div class="form-group col-md-2">
+                    <label for="set-contrast"> 
+                      Contrast
+                    </label> 
+                    <input value="0" name="pcontrast" type="text" class="form-control" id="set-contrast" placeholder="0">
+                    <small class="info text-muted">
+                      Set the contrast of the image
+                    </small>                    
+                  </div>  
+                  <div class="form-group col-md-2">
+                    <label for="set-brightness"> 
+                      Brightness
+                    </label>  
+                    <input name="pbrightness" type="text" class="form-control" value="50" id="set-brightness" placeholder="50">
+                    <small class="info text-muted"> 
+                      Set the brightness of the image, 50 is the default. 0 is black, 100 is white.
+                    </small>                    
+                  </div>  
+                  <div class="form-group col-md-2">
+                    <label for="set-saturation"> 
+                      Saturation
+                    </label>
+                    <input value="0" name="psaturation" type="text" class="form-control" id="set-saturation" placeholder="50">
+                    <small class="info text-muted">
+                      Set the colour saturation of the image. 0 is the default
+                    </small>                    
+                  </div> 
+                  <div class="form-group col-md-2">
+                    <label for="set-ev"> 
+                      EV compensation
+                    </label>  
+                    <input name="pev" type="text" class="form-control" value="0" id="set-ev" placeholder="0">
+                    <small class="info text-muted"> 
+                      Set the EV compensation of the image. Range is -10 to +10, default is 0.
+                    </small>                    
+                  </div> 
+                  <div class="form-group col-md-2">
+                    <label>
+                      <input name="phﬂip" type="checkbox" checked> Horizontal ﬂip
+                    </label>
+                    <small class="info text-muted"> 
+                      Flips the saved image horizontally.
+                    </small> 
+                    <label>
+                      <input name="pvﬂip" type="checkbox" checked> Vertical ﬂip
+                    </label>
+                    <small class="info text-muted"> 
+                      Flips the saved image vertically.
+                    </small>   
+                  </div>                                             
+                </div> 
+                <!--               
+                --colfx, -cfx Set colour effect <U:V>
+                The supplied U and V parameters (range 0 to 255) are applied to the U and Y channels of the image. For example, --colfx 128:128 
+                should result in a monochrome image.
+                --metering, -mm Set metering mode
+                Specify the metering mode used for the preview and capture
+                average Average the whole frame for metering.
+                spot Spot metering
+                backlit Assume a backlit image
+                matrix Matrix metering
+                --rotation, -rot Set image rotation (0-359)
+                Sets the rotation of the image in viewﬁnder and resulting image. This can take any value from 0 upwards, but due to hardware 
+                constraints only 0, 90, 180 and 270 degree rotations are supported.
+                -->
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" style="display:block">
+                  Camera settings
+                </a>
+              </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label for="select-ex-mode">Exposure mode</label>
+                    <select id="select-ex-mode" class="form-control" name="ex">                 
+                        <option>off</option> 
+                        <option>auto</option>
+                        <option>night</option>
+                        <option>nightpreview</option>
+                        <option>backlight</option>
+                        <option>spotlight</option>
+                        <option>sports</option>
+                        <option>snow</option>
+                        <option>beach</option>
+                        <option>verylong</option>
+                        <option>ﬁxedfps</option>
+                        <option>antishake</option>
+                        <option>ﬁreworks</option>  
+                    </select>
+                  </div> 
+                  <div class="form-group col-md-4">
+                    <label for="select-awb-mode">White Balance (AWB) mode</label>
+                    <select id="select-awb-mode" class="form-control" name="awb"> 
+                        <option>auto</option>                                  
+                        <option>off</option> 
+                        <option>sun</option>
+                        <option>cloud</option>
+                        <option>shade</option>
+                        <option>tungsten</option>
+                        <option>ﬂuorescent</option>
+                        <option>incandescent</option>
+                        <option>ﬂash</option>
+                        <option>horizon</option>
+                    </select>
+                  </div> 
+                  <div class="form-group col-md-4">                    
+                    <label for="select-imxfx-mode">Image effect</label>
+                    <select id="select-imxfx-mode" class="form-control" name="imxfx"> 
+                        <option>none</option>                                  
+                        <option>negative</option> 
+                        <option>solarise</option>
+                        <option>posterize</option>
+                        <option>whiteboard</option>
+                        <option>blackboard</option>
+                        <option>sketch</option>
+                        <option>denoise</option>
+                        <option>emboss</option>
+                        <option>oilpaint</option>
+                        <option>hatch</option>                                  
+                        <option>gpen</option> 
+                        <option>pastel</option>
+                        <option>watercolour</option>
+                        <option>blur</option>
+                        <option>blackboard</option>
+                        <option>saturation</option>               
+                    </select>
+                    <small class="info text-muted"> 
+                      Set an effect to be applied to the image
+                    </small>  
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <div class="btn-group pull-right">
+          <button type="button" class="btn btn-lg btn-default" data-toggle="modal" data-target="#Preview">Preview</button>
+          <button type="submit" data-loading-text="Shooting..." class="btn btn-lg btn-primary">Shoot</button>
+        </div>
+                
+      </form>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="Preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Preview</h4>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->    
+    <script type="text/javascript" src="/libs/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/libs/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/libs/bootstrap-touchspin/bootstrap-touchspin/bootstrap.touchspin.js"></script>
+    <script type="text/javascript" >
+      $( document ).ready(function() {
+        $('#Preview').on('show.bs.modal', function () {
+          var streamAdress = location.protocol + '//' + location.hostname + ":8080/?action=stream"
+          $("#Preview .modal-body").html(
+            
+            "<img src='"+ streamAdress +"' width='100%'>"
+          );
+        })
+
+        $("input[name='psharpness'], input[name='pcontrast'], input[name='psaturation'] ").TouchSpin({
+            min: -100,
+            max: 100,
+            step: 10,
+            decimals: 0,
+            boostat: 15
+        });
+        $("input[name='pev'] ").TouchSpin({
+            min: -10,
+            max: 10,
+            step: 1,
+            decimals: 0,
+            boostat: 5
+        });
+        
+        $("input[name='pbrightness']").TouchSpin({
+            min: 0,
+            max: 100,
+            step: 10,
+            decimals: 0,
+            boostat: 15
+        });
+
+      })
+
+    </script>
+  </body>
+</html>

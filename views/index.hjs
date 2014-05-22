@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/libs/bootstrap/dist/css/bootstrap.css' />
+    <link rel='stylesheet' href='/libs/bootstrap/dist/css/bootstrap-theme.css' /> 
+    <link rel='stylesheet' href='/stylesheets/navbar-static-top.css' />   
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{ title }}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/">home</a></li>
+            <li><a href="/camera">camera</a></li>            
+            <li><a href="/gallery">gallery</a></li>
+            <li><a href="/about">about</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Welcome to {{ title }}</h1>
+        <p>Use this interface to control the pi pro</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="/camera" role="button">camera &raquo;</a>
+        </p>
+      </div>
+
+    </div>
+  </body>
+</html>
